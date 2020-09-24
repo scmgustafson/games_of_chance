@@ -23,6 +23,11 @@ def coin_flip():
     
     #This gets the user's bet amount and guess
     bet = int((input("Please enter the amount you wish to bet: ")))
+    print("----------------------")
+    if bet > money:
+        print("You have tried to bet more money than you have.")
+        print("Please try again.")
+        exit()
     print("You have bet " + str(bet) + " money.")
     print("----------------------")
     guess = str(input("Please guess heads or tails: "))
