@@ -2,7 +2,8 @@
 Games of Chance project challenge from the Codeacademy Computer Science path.
 
 Coin Flip-
-- Start the game by calling the coin_flip() function
+- Start the game by starting coin_flip.py
+    - python coin_flip.y
 - Enter a bet amount as an integer
 - Enter "heads" or "tails" as a guess
 - ???
@@ -10,7 +11,8 @@ Coin Flip-
 - Enter y to replay or n to quit
 
 Cho Han-
-- Start the game by calling the cho_han() function
+- Start the game by starting cho_han.py
+    - python cho_han.py
 - Enter a bet amount as an integer
 - Enter "odd" or "even" as a guess
 - The dice will roll
