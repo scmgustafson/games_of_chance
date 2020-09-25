@@ -7,4 +7,12 @@ Coin Flip-
 - Enter "heads" or "tails" as a guess
 - ???
 - Profit!
-- Enter y to replay.
+- Enter y to replay or n to quit
+
+Cho Han-
+- Start the game by calling the cho_han() function
+- Enter a bet amount as an integer
+- Enter "odd" or "even" as a guess
+- The dice will roll
+- Win or lose
+- Enter y to replay or n to quit
