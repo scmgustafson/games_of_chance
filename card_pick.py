@@ -12,16 +12,21 @@ def card_draw():
 
     #Get player input for bet and guess
     bet = int(input("Please enter the amount you wish to bet: "))
-    print("Please try to guess which card will be higher.")
-    guess = str(input("card1 or card2: "))
+    if bet <= money:
+        print("Please try to guess which card will be higher.")
+        guess = str(input("card1 or card2: "))
+    else:
+        print("That bet is more money than you have.")
+        card_draw()
 
     #This builds the "deck"
-    ## suits = ["spades","clubs","hearts","diamonds"]
-    faces = {2,3,4,5,6,7,8,9,10,"jack","queen","king","ace"}
+    suits = ["spades","clubs","hearts","diamonds"]
+    faces = [2,3,4,5,6,7,8,9,10,"jack","queen","king","ace"]
 
     deck = []
-    for face in faces:
-        deck.append((face))
+    for suit in suits:
+        for face in faces:
+            deck.append((suit, face))
     
     #This pulls the first card from the deck and "removes" it
     #until deck is "shuffled"
@@ -75,16 +80,17 @@ def card_draw():
         print("You now have " + str(money) + " money.")
 
     #Play again mechanism
-    play_again = input("Do you want to play again? Y or N: ")
-    if play_again == "y" and money > 0:
-        card_draw()
-    elif play_again == "y" and money <= 0:
-        print("You are out of money.")
-        print("Goodbye!")
-        exit()
-    else:
-        print("Goodbye!")
-        exit()
+    while play_again != "y":
+        play_again = input("Do you want to play again? y or n: ")
+        if play_again.lower() == "y" and money > 0:
+            card_draw()
+        elif play_again.lower() == "y" and money <= 0:
+            print("You are out of money.")
+            print("Goodbye!")
+            exit()
+        elif play_again.lower() == "n":
+            print("Goodbye!")
+            exit()
 
 #Call functions here
 card_draw()
