@@ -11,13 +11,30 @@ def card_draw():
     play_again = None
 
     #Get player input for bet and guess
-    bet = int(input("Please enter the amount you wish to bet: "))
-    if bet <= money:
-        print("Please try to guess which card will be higher.")
-        guess = str(input("card1 or card2: "))
-    else:
-        print("That bet is more money than you have.")
-        card_draw()
+    while bet == 0:
+        try:
+            bet = int(input("Please enter the amount you wish to bet: "))
+            if bet <= money:
+                while guess != "card1" and guess != "card2":
+                    try:
+                        print("Please try to guess which card will be higher.")
+                        guess = str(input("card1 or card2: "))
+                    except:
+                        print("That is not a valid guess.")
+                        print("Please guess again.")
+                        card_draw()
+            elif bet > money:
+                print("That bet is more money than you have.")
+                print("Please bet again.")
+                card_draw()
+            else:
+                print("That is not a valid bet.")
+                print("Please bet again.")
+                card_draw()
+        except:
+            print("That is not a valid bet.")
+            print("Please bet again.")
+            card_draw()
 
     #This builds the "deck"
     suits = ["spades","clubs","hearts","diamonds"]
