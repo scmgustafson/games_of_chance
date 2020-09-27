@@ -38,8 +38,8 @@ def card_draw():
     card2 = random.choice(deck)
 
     #Flavor/debugging text
-    print("The first card is a: " + str(card1))
-    print("The second card is a: " + str(card2))
+    print("The first card is a: " + str(card1[1]) + " of " + str(card1[0]))
+    print("The second card is a: " + str(card2[1]) + " of " + str(card2[0]))
 
     #This takes any "face" card and gives it an equivalent integer value
     #used for comparing the 2 cards
@@ -81,7 +81,7 @@ def card_draw():
 
     #Play again mechanism
     while play_again != "y":
-        play_again = input("Do you want to play again? y or n: ")
+        play_again = input("Do you want to play again? Y or N: ")
         if play_again.lower() == "y" and money > 0:
             card_draw()
         elif play_again.lower() == "y" and money <= 0:
@@ -91,6 +91,8 @@ def card_draw():
         elif play_again.lower() == "n":
             print("Goodbye!")
             exit()
+        else:
+            print("Please enter N or Y")
 
 #Call functions here
 card_draw()
