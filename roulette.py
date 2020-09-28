@@ -7,11 +7,44 @@ def roulette():
     #Variable Initialization
     global money
     bet = 0
+    guess_type = None
     guess = None
     color = None
     odd_even = None
     spin = 0
     play_again = None
+
+    #get player input for bet and guess
+    while bet == 0:
+        try:
+            bet = int(input("Please enter the amount you wish to bet: "))
+            if bet <= money:
+                while guess_type == None:
+                    print("You may bet on a color, odd or even, or a number")
+                    guess_type = input("Please select 'color', 'odd or even', or 'number': ")
+                    if guess_type == "color":
+                        guess = input("Please select red or black: ")
+                    elif guess_type == "odd or even":
+                        guess = input("Please select odd or even: ")
+                    elif guess_type == "number":
+                        guess = input("Please select a number between 1 and 36 or 0 or 00: ")
+                        if guess == "0":
+                            guess = 37
+                        elif guess == "00":
+                            guess = 38
+                        guess = int(guess)
+            elif bet > money:
+                print("That bet is more money than you have.")
+                print("Please bet again.")
+                card_draw()
+            else:
+                print("That is not a valid bet.")
+                print("Please bet again.")
+                card_draw()
+        except:
+            print("That is not a valid bet.")
+            print("Please bet again.")
+            card_draw()
 
     #Random spin on a roulette wheel
     spin = random.randint(1,38)
@@ -44,15 +77,15 @@ def roulette():
 
     #0 and 00 spots on roulette wheel
     if spin == 37:
-        spin = "0"
         color = None
         odd_even = None
     elif spin == 38:
-        spin = "00"
         color = None
         odd_even = None
     
     #Debugging info
+    print(guess)
+    print(type(guess))
     print(spin)
     print(color)
     print(odd_even)
