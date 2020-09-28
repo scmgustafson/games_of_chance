@@ -27,3 +27,13 @@ Card Pick-
 - Two cards will be drawn from a deck of cards
 - Win or lose
 - Enter y to replay or n to quit
+
+Roulette -
+- Start the game by starting roulette.py
+    - python roulette.py
+- Enter a bet amount as an integer
+- Select which bet type you are making
+- Enter red or black, odd or even, or a number
+- The wheel will spin
+- Win or lose
+- Enter y to replay or n to quit
